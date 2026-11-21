@@ -1,0 +1,38 @@
+{"q": "What is the age limit for the old age pension?", "lang": "en", "expected": ["GL-PEN-01"]}
+{"q": "Which documents are needed for the disability pension?", "lang": "en", "expected": ["GL-DIS-01"]}
+{"q": "How much money does the Kisan Samriddhi scheme give farmers?", "lang": "en", "expected": ["GL-FRM-01"]}
+{"q": "Is there a fee to apply for a scheme?", "lang": "en", "expected": ["POL-FEE-01"]}
+{"q": "How many hours in advance must I book a service centre visit?", "lang": "en", "expected": ["POL-APPT-01"]}
+{"q": "Was the girls' scholarship last date extended?", "lang": "en", "expected": ["CIR-2026-011"]}
+{"q": "Is the farm machinery subsidy closed?", "lang": "en", "expected": ["CIR-2026-009"]}
+{"q": "How long is an income certificate valid?", "lang": "en", "expected": ["CIR-2026-002"]}
+{"q": "Was the land ceiling for Kisan Samriddhi raised to 5 acres?", "lang": "en", "expected": ["CIR-2026-007"]}
+{"q": "Is the UDID card accepted as a disability certificate?", "lang": "en", "expected": ["CIR-2026-006"]}
+{"q": "Notice about extension of Kanya Vidya scholarship last date in Kaverinadu", "lang": "en", "expected": ["CIR-2026-012", "CIR-2026-011"]}
+{"q": "When does enrolment for the accident insurance scheme close?", "lang": "en", "expected": ["CIR-2026-010", "GL-INS-01"]}
+{"q": "Will the Medhavi scholarship last date be extended?", "lang": "en", "expected": ["CIR-2026-015"]}
+{"q": "वृद्धजन पेंशन के लिए न्यूनतम आयु कितनी है?", "lang": "hi", "expected": ["GL-PEN-01"]}
+{"q": "दिव्यांग संबल योजना में कितनी दिव्यांगता होनी चाहिए?", "lang": "hi", "expected": ["GL-DIS-01"]}
+{"q": "ग्रामीण आवास योजना में आय सीमा कितनी है?", "lang": "hi", "expected": ["GL-HSG-01", "CIR-2026-016"]}
+{"q": "सुरक्षा बीमा योजना में कितने का बीमा मिलता है?", "lang": "hi", "expected": ["GL-INS-01"]}
+{"q": "कृषि यंत्र अनुदान योजना बंद हो गई है क्या?", "lang": "hi", "expected": ["CIR-2026-009"]}
+{"q": "शिकायत का निपटारा कितने दिनों में होता है?", "lang": "hi", "expected": ["POL-GRV-01"]}
+{"q": "किसान समृद्धि में ज़मीन की सीमा 5 एकड़ कब से है?", "lang": "hi", "expected": ["CIR-2026-007", "GL-FRM-01-HI"]}
+{"q": "आय प्रमाण पत्र कितने समय तक मान्य है?", "lang": "hi", "expected": ["CIR-2026-002"]}
+{"q": "पेंशन की आय सीमा 1,50,000 कब से हुई?", "lang": "hi", "expected": ["CIR-2026-005", "CIR-2026-004", "GL-PEN-01-HI"]}
+{"q": "ವೃದ್ಧಾಪ್ಯ ಪಿಂಚಣಿಗೆ ಕನಿಷ್ಠ ವಯಸ್ಸು ಎಷ್ಟು?", "lang": "kn", "expected": ["GL-PEN-01"]}
+{"q": "ಕಿಸಾನ್ ಸಮೃದ್ಧಿ ಯೋಜನೆಗೆ ಯಾವ ದಾಖಲೆಗಳು ಬೇಕು?", "lang": "kn", "expected": ["GL-FRM-01"]}
+{"q": "ಮೇಧಾವಿ ವಿದ್ಯಾರ್ಥಿ ಯೋಜನೆಯ ಆದಾಯ ಮಿತಿ ಎಷ್ಟು?", "lang": "kn", "expected": ["GL-SCH-02", "CIR-2026-013"]}
+{"q": "ಅರ್ಜಿ ಸಲ್ಲಿಸಲು ಯಾವುದೇ ಶುಲ್ಕ ಇದೆಯೇ?", "lang": "kn", "expected": ["POL-FEE-01"]}
+{"q": "ನಗರ ಬಾಡಿಗೆ ಸಹಾಯ ಯೋಜನೆ ಯಾವಾಗ ಆರಂಭ?", "lang": "kn", "expected": ["CIR-2026-014", "GL-HSG-02"]}
+{"q": "ಸೇವಾ ಕೇಂದ್ರ ಭೇಟಿಯನ್ನು ಎಷ್ಟು ಮುಂಚಿತವಾಗಿ ಬುಕ್ ಮಾಡಬೇಕು?", "lang": "kn", "expected": ["POL-APPT-01"]}
+{"q": "ಯುಡಿಐಡಿ ಕಾರ್ಡ್ ಅಂಗವೈಕಲ್ಯ ಪ್ರಮಾಣಪತ್ರವಾಗಿ ಮಾನ್ಯವೇ?", "lang": "kn", "expected": ["CIR-2026-006", "GL-DIS-01-KN"]}
+{"q": "ಕನ್ಯಾ ವಿದ್ಯಾ ವಿದ್ಯಾರ್ಥಿವೇತನದ ಕೊನೆಯ ದಿನಾಂಕ ವಿಸ್ತರಣೆ", "lang": "kn", "expected": ["CIR-2026-012", "CIR-2026-011"]}
+{"q": "முதியோர் ஓய்வூதியத்திற்கு குறைந்தபட்ச வயது என்ன?", "lang": "ta", "expected": ["GL-PEN-01"]}
+{"q": "கிராமப்புற வீட்டு உதவித் திட்டத்திற்கு யார் தகுதியானவர்?", "lang": "ta", "expected": ["GL-HSG-01"]}
+{"q": "மாற்றுத்திறனாளி உதவித் திட்டத்தில் மாதம் எவ்வளவு கிடைக்கும்?", "lang": "ta", "expected": ["GL-DIS-01"]}
+{"q": "விவசாய இயந்திர மானியத் திட்டம் மூடப்பட்டதா?", "lang": "ta", "expected": ["CIR-2026-009"]}
+{"q": "புகார் தீர்க்க எத்தனை வேலை நாட்கள் ஆகும்?", "lang": "ta", "expected": ["POL-GRV-01"]}
+{"q": "சுரக்ஷா காப்பீட்டுத் திட்டப் பதிவு எப்போது முடியும்?", "lang": "ta", "expected": ["CIR-2026-010", "GL-INS-01-TA"]}
+{"q": "மேதாவி மாணவர் திட்டத்தின் கடைசி தேதி நீட்டிக்கப்படுமா?", "lang": "ta", "expected": ["CIR-2026-015"]}
+{"q": "கன்யா வித்யா கல்வி உதவித்தொகை கடைசி தேதி என்ன?", "lang": "ta", "expected": ["GL-SCH-01-TA", "CIR-2026-011"]}

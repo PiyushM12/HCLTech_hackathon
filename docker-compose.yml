@@ -1,0 +1,44 @@
+# SchemeSathi: `docker compose up --build` starts the API (FastAPI + SQLite + ChromaDB) and the UI.
+# Ollama runs on the host by default (see README). To run it in a container instead:
+#   docker compose --profile ollama up --build   and set OLLAMA_URL=http://ollama:11434 in .env
+services:
+  api:
+    build:
+      context: ./backend
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      MOCK_LLM: ${MOCK_LLM:-false}
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:7b-instruct}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-intfloat/multilingual-e5-small}
+      RUNTIME_DIR: /app/data/runtime
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8000:8000"
+    volumes:
+      - runtime:/app/data/runtime
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: ./frontend
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:0.5.7
+    profiles: ["ollama"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+
+volumes:
+  runtime:
+  ollama:

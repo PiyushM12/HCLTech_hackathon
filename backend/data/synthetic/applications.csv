@@ -1,0 +1,8 @@
+application_id,citizen_id,scheme_id,status,status_updated_on,remarks
+APP-1001,C1007,SCH-PEN-01,submitted,2026-10-20,
+APP-1002,C1008,SCH-PEN-01,rejected,2026-09-05,Age record mismatch between ration card and age certificate
+APP-1003,C1009,SCH-PEN-01,submitted,2026-08-14,
+APP-1004,C1014,SCH-PEN-01,approved,2026-06-12,Approved; pension from July 2026
+APP-1005,C1023,SCH-FRM-01,submitted,2026-11-01,
+APP-1006,C1030,SCH-SCH-01,submitted,2026-10-15,
+APP-1007,C1006,SCH-FRM-01,approved,2026-07-20,First instalment paid August 2026

@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0169",
+  "citizen_question": "Mujhe WhatsApp pe message aaya ki Divyang Sambal ka paisa ruka hai, ₹500 release fee bhejo is number pe UPI se. Kya yeh sahi hai? Bhejna chahiye?",
+  "intent": "fraud",
+  "resolution": "Bilkul mat bhejiye. Kisi bhi scheme mein koi release fee nahi hoti (POL-FEE-01, CIR-2026-008). Scheme ka paisa sirf seedha aapke bank khate mein aata hai. Yeh fraud message hai. Humne yeh number fraud desk ko report kar diya hai. Aage bhi koi paise, OTP ya PIN maange toh mat dena aur service centre ya SchemeSathi pe report karna.",
+  "tags": ["fraud", "release fee", "whatsapp", "upi", "hinglish"],
+  "resolved_at": "2026-09-20",
+  "scheme_id": "",
+  "language": "mixed",
+  "needed_human_officer": "N"
+}

@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0131",
+  "citizen_question": "मेरे नाम पर 4.5 एकड़ खेती की ज़मीन है। क्या मैं किसान समृद्धि योजना में आवेदन कर सकता हूँ?",
+  "intent": "eligibility",
+  "resolution": "किसान समृद्धि योजना में किसान के पास कम से कम 0.5 एकड़ और ज़्यादा से ज़्यादा 4 एकड़ ज़मीन होनी चाहिए। आपकी ज़मीन 4.5 एकड़ है, जो सीमा से ज़्यादा है। इसलिए आप इस योजना के लिए पात्र नहीं हैं।",
+  "tags": ["kisan samriddhi", "eligibility", "land limit", "farmer"],
+  "resolved_at": "2026-06-02",
+  "scheme_id": "SCH-FRM-01",
+  "language": "hi",
+  "needed_human_officer": "N"
+}

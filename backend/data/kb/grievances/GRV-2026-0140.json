@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0140",
+  "citizen_question": "A man called my father saying he is from the pension office. He said the pension will stop unless we tell him the OTP that just came on the phone. My father told him the OTP. Now ₹4,000 is missing from the account. Please help.",
+  "intent": "fraud",
+  "resolution": "This was a fraud call. No official ever asks for an OTP or bank PIN (POL-FEE-01). The case was marked urgent and picked up by the district fraud desk officer the same day. The family was helped to call the bank and block the account and card, and the officer forwarded the caller's number and the transaction details to the district cyber cell. The family was given a complaint number to follow up with the bank for recovery. The father's pension under SCH-PEN-01 was not affected.",
+  "tags": ["fraud", "otp", "phone call", "pension", "cyber cell"],
+  "resolved_at": "2026-09-08",
+  "scheme_id": "",
+  "language": "en",
+  "needed_human_officer": "Y"
+}

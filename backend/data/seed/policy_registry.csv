@@ -1,0 +1,16 @@
+rule_id,description,parameter,operator,value,scope_schemes,effective_from,source_id,source_section
+FEE-01,No fee is charged for any scheme application or for service-centre help,application_fee_inr,=,0,ALL,2026-04-01,POL-FEE-01,2 No fee for applications
+APPT-LEAD-01,A service-centre visit must be booked at least this many hours ahead,appointment_min_lead_hours,>=,24,ALL,2026-04-01,POL-APPT-01,2 Booking lead time
+APPT-HORIZON-01,Visits can be booked at most this many days ahead,appointment_max_days_ahead,<=,30,ALL,2026-04-01,POL-APPT-01,3 Booking window
+ACT-EXP-01,A proposed action expires if not confirmed within this many minutes,action_expiry_minutes,<=,30,ALL,2026-04-01,POL-APPT-01,4 Confirmation window
+REM-01,Default time for a day-before reminder,reminder_default_time,=,18:00,ALL,2026-04-01,POL-APPT-01,5 Reminders
+GRV-SLA-01,A grievance must be resolved within this many working days,grievance_sla_working_days,<=,30,ALL,2026-04-01,POL-GRV-01,2 Grievance timeline
+REF-SLA-URG,An urgent referral must be picked up within this many working days,referral_sla_working_days_urgent,<=,1,ALL,2026-04-01,POL-GRV-01,3 Referral pick-up times
+REF-SLA-HIGH,A high-priority referral must be picked up within this many working days,referral_sla_working_days_high,<=,2,ALL,2026-04-01,POL-GRV-01,3 Referral pick-up times
+REF-SLA-NORM,A normal or low priority referral must be picked up within this many working days,referral_sla_working_days_normal,<=,5,ALL,2026-04-01,POL-GRV-01,3 Referral pick-up times
+APP-TGT-01,Target time for a decision on a submitted application,application_processing_target_days,<=,45,ALL,2026-04-01,POL-GRV-01,4 Application processing target
+RPT-01,Number of contacts on the same issue treated as repeated contact,repeated_contact_threshold,>=,3,ALL,2026-04-01,POL-GRV-01,5 Repeated contact
+CRT-GRD-01,Minimum critic groundedness score for an answer to be sent without referral,critic_min_groundedness,>=,0.8,ALL,2026-04-01,POL-AI-01,2 Groundedness threshold
+QPT-01,Maximum number of questions the assistant may ask in one turn,max_questions_per_turn,<=,2,ALL,2026-04-01,POL-AI-01,3 Questions per turn
+CRT-REV-01,Maximum number of critic-driven revisions before referral,critic_max_revisions,<=,1,ALL,2026-04-01,POL-AI-01,4 Revisions
+RET-K-01,Number of passages retrieved per query,retrieval_top_k,=,6,ALL,2026-04-01,POL-AI-01,5 Retrieval depth

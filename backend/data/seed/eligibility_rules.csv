@@ -1,0 +1,36 @@
+rule_id,scheme_id,attribute,operator,value,rule_group,effective_from,valid_until,source_id,source_section
+PEN-R1,SCH-PEN-01,age,>=,60,,2026-04-01,,GL-PEN-01,3 Eligibility
+PEN-R2,SCH-PEN-01,annual_household_income,<=,120000,,2026-04-01,2026-06-30,GL-PEN-01,3 Eligibility
+PEN-R2B,SCH-PEN-01,annual_household_income,<=,150000,,2026-07-01,,CIR-2026-004,2 Revised income limit
+KVC-R1,SCH-SCH-01,gender,=,female,,2026-09-01,,GL-SCH-01,3 Eligibility
+KVC-R2,SCH-SCH-01,occupation,=,student,,2026-09-01,,GL-SCH-01,3 Eligibility
+KVC-R3,SCH-SCH-01,age,>=,14,,2026-09-01,,GL-SCH-01,3 Eligibility
+KVC-R4,SCH-SCH-01,age,<=,25,,2026-09-01,,GL-SCH-01,3 Eligibility
+KVC-R5,SCH-SCH-01,annual_household_income,<=,250000,,2026-09-01,,GL-SCH-01,3 Eligibility
+KSY-R1,SCH-FRM-01,occupation,=,farmer,,2026-04-01,,GL-FRM-01,3 Eligibility
+KSY-R2,SCH-FRM-01,land_holding_acres,<=,4,,2026-04-01,2026-07-31,GL-FRM-01,3 Eligibility
+KSY-R2B,SCH-FRM-01,land_holding_acres,<=,5,,2026-08-01,,CIR-2026-007,2 Revised land ceiling
+KSY-R3,SCH-FRM-01,land_holding_acres,>=,0.5,,2026-04-01,,GL-FRM-01,3 Eligibility
+KSY-R4,SCH-FRM-01,annual_household_income,<=,300000,,2026-04-01,,GL-FRM-01,3 Eligibility
+GAS-R1,SCH-HSG-01,residence_type,=,rural,,2026-06-01,,GL-HSG-01,3 Eligibility
+GAS-R2,SCH-HSG-01,annual_household_income,<=,180000,,2026-06-01,,GL-HSG-01,3 Eligibility
+GAS-R3,SCH-HSG-01,land_holding_acres,<=,2.5,,2026-06-01,,GL-HSG-01,3 Eligibility
+GAS-R4A,SCH-HSG-01,category,in,sc;st,G1,2026-06-01,,GL-HSG-01,3.4 Priority condition
+GAS-R4B,SCH-HSG-01,annual_household_income,<=,100000,G1,2026-06-01,,GL-HSG-01,3.4 Priority condition
+GAS-R4C,SCH-HSG-01,is_disabled,=,Y,G1,2026-06-01,,GL-HSG-01,3.4 Priority condition
+DSY-R1,SCH-DIS-01,is_disabled,=,Y,,2026-04-01,,GL-DIS-01,3 Eligibility
+DSY-R2,SCH-DIS-01,disability_percent,>=,40,,2026-04-01,,GL-DIS-01,3 Eligibility
+DSY-R3,SCH-DIS-01,annual_household_income,<=,200000,,2026-04-01,,GL-DIS-01,3 Eligibility
+SBY-R1,SCH-INS-01,age,>=,18,,2026-09-01,,GL-INS-01,3 Eligibility
+SBY-R2,SCH-INS-01,age,<=,59,,2026-09-01,,GL-INS-01,3 Eligibility
+SBY-R3,SCH-INS-01,occupation,in,daily_wage;farmer;construction_worker;street_vendor,,2026-09-01,,GL-INS-01,3 Eligibility
+SBY-R4,SCH-INS-01,annual_household_income,<=,250000,,2026-09-01,,GL-INS-01,3 Eligibility
+MCP-R1,SCH-SCH-02,occupation,=,student,,2026-10-01,,GL-SCH-02,3 Eligibility
+MCP-R2,SCH-SCH-02,age,<=,25,,2026-10-01,,GL-SCH-02,3 Eligibility
+MCP-R3,SCH-SCH-02,annual_household_income,<=,300000,,2026-10-01,2026-12-31,GL-SCH-02,3 Eligibility
+MCP-R3B,SCH-SCH-02,annual_household_income,<=,400000,,2027-01-01,,CIR-2026-013,2 Revised income limit
+KYA-R1,SCH-FRM-02,occupation,=,farmer,,2026-04-01,,GL-FRM-02,3 Eligibility
+KYA-R2,SCH-FRM-02,land_holding_acres,<=,10,,2026-04-01,,GL-FRM-02,3 Eligibility
+SKS-R1,SCH-HSG-02,residence_type,=,urban,,2027-01-15,,GL-HSG-02,3 Eligibility
+SKS-R2,SCH-HSG-02,annual_household_income,<=,150000,,2027-01-15,,GL-HSG-02,3 Eligibility
+SKS-R3,SCH-HSG-02,age,>=,18,,2027-01-15,,GL-HSG-02,3 Eligibility

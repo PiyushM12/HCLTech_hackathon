@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0121",
+  "citizen_question": "I applied for Kisan Samriddhi Yojana at the Pipra Jan Seva Kendra on 10 June. It is now more than 45 days and I have no decision and no August instalment. Every time I ask, they say wait. What is happening?",
+  "intent": "delay",
+  "resolution": "The case was referred to the block agriculture officer because it was past the 45-day target. The officer found that the application was approved but the payment had failed because the IFSC code in the form did not match the bank passbook. The bank details were corrected at the service centre free of cost, and the August instalment of ₹2,000 was credited on 2026-09-28. The farmer was told that the December instalment will follow normally.",
+  "tags": ["kisan samriddhi", "delay", "instalment", "bank details", "45 days"],
+  "resolved_at": "2026-09-29",
+  "scheme_id": "SCH-FRM-01",
+  "language": "en",
+  "needed_human_officer": "Y"
+}

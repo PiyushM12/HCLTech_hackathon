@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0147",
+  "citizen_question": "I have 6 acres of land and want to buy a power tiller. Is it too late to apply for Krishi Yantra Anudan Yojana?",
+  "intent": "eligibility",
+  "resolution": "No, it is not too late. Yes, you can still apply. Applications under Krishi Yantra Anudan Yojana are accepted until 2026-09-30 (30 September 2026). With 6 acres you are within the 10-acre limit. Get a quotation from a dealer on the department's approved list and bring it with your land record (khatauni) and bank passbook to any service centre. The subsidy is 50% of the price, up to ₹50,000. Buy the machine only after you get the approval letter.",
+  "tags": ["krishi yantra", "farm machinery", "last date", "eligibility"],
+  "resolved_at": "2026-08-15",
+  "scheme_id": "SCH-FRM-02",
+  "language": "en",
+  "needed_human_officer": "N"
+}

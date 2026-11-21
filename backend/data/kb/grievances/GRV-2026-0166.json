@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0166",
+  "citizen_question": "I am 45 and I sell vegetables from a cart in Sundarpur Old City. Our family income is about ₹1,80,000 a year. Can I get the free accident insurance?",
+  "intent": "eligibility",
+  "resolution": "Yes, you can enrol in Suraksha Bima Yojana. Street vendors aged 18 to 59 with an annual household income of ₹2,50,000 or less are eligible. Bring an age proof, your vendor or labour card (or a letter from the ward office or Gram Panchayat) and your bank passbook to the service centre. Enrolment is open until 2026-11-20 (20 November 2026). The cover is ₹2,00,000 and the state pays the premium.",
+  "tags": ["suraksha bima", "street vendor", "insurance", "eligibility"],
+  "resolved_at": "2026-09-15",
+  "scheme_id": "SCH-INS-01",
+  "language": "en",
+  "needed_human_officer": "N"
+}

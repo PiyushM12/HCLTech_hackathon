@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0207",
+  "citizen_question": "Medhavi scheme ke liye mera income certificate September 2025 ka hai, 14 mahine purana. Kya chalega ya naya banwana padega?",
+  "intent": "documents",
+  "resolution": "Naya banwana padega. Sabhi schemes ke liye income certificate issue date se 12 mahine tak hi valid hota hai (CIR-2026-002). 14 mahine purana certificate accept nahi hoga. Service centre pe naye income certificate ke liye turant apply kijiye. Medhavi ki last date 2026-11-21 (21 November 2026) hai, isliye der mat kijiye.",
+  "tags": ["medhavi", "income certificate", "validity", "documents", "hinglish"],
+  "resolved_at": "2026-11-12",
+  "scheme_id": "SCH-SCH-02",
+  "language": "mixed",
+  "needed_human_officer": "N"
+}

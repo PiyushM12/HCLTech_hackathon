@@ -8,8 +8,11 @@ from contextlib import asynccontextmanager
 from datetime import datetime
 from typing import Any, Optional
 
-from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Query, UploadFile
+from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, UploadFile
+from fastapi.exception_handlers import request_validation_exception_handler
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from . import auth, config, db, i18n, loader, memory, tools
 from .agents import actions
@@ -17,7 +20,7 @@ from .graph import run_ask
 from .kb import ingest as kb_ingest
 from .kb import vectorstore as vs
 from .llm import llm
-from .models import AskRequest, AskResponse, EligibilityRequest, LoginRequest
+from .models import AskRequest, AskResponse, EligibilityRequest, RecommendationRequest
 
 
 log = logging.getLogger("schemesathi")
@@ -27,11 +30,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     db.init_db()
-    with db.get_conn() as conn:
-        auth.seed_admin(conn)
+    vs.get_embedder()  # load the shared model before indexing individual sources
     report = kb_ingest.build_kb()
     log.info("knowledge base ready: %s", {k: v for k, v in report.items() if k != "seed"})
-    vs.get_embedder()  # warm the model so the first request is not slow
     yield
 
 
@@ -39,41 +40,34 @@ app = FastAPI(title="SchemeSathi API", version="1.0.0", lifespan=lifespan,
               description="Multilingual citizen scheme navigator for the fictional state of Mitrapur Pradesh. "
                           "All schemes, amounts and offices are fictional; nothing here is real advice.")
 app.add_middleware(CORSMiddleware, allow_origins=config.CORS_ORIGINS, allow_methods=["*"], allow_headers=["*"])
+app.include_router(auth.router)
 
 
-def _cid(x_citizen_id: Optional[str]) -> str:
-    v = (x_citizen_id or "guest").strip()
-    return v if v else "guest"
+@app.exception_handler(RequestValidationError)
+async def validation_error(request: Request, exc: RequestValidationError):
+    if request.url.path == "/auth/login":
+        return JSONResponse({"detail": "Choose a role and enter a valid username and password."}, status_code=422)
+    if request.url.path == "/auth/register":
+        return JSONResponse({"detail": "Enter a valid username and a password of 12–128 characters."}, status_code=422)
+    return await request_validation_exception_handler(request, exc)
 
 
-# ------------------------------------------------------------------ authentication
-@app.post("/auth/login")
-def login(req: LoginRequest) -> dict[str, Any]:
-    with db.get_conn() as conn:
-        user = auth.authenticate(conn, req.username, req.password)
-    if not user:
-        raise HTTPException(401, "wrong username or password")
-    token, exp = auth.make_token(user["username"], user["role"], user["citizen_id"])
-    return {"token": token, "token_type": "bearer", "expires_at": exp, "username": user["username"],
-            "role": user["role"], "citizen_id": user["citizen_id"]}
-
-
-@app.get("/auth/me")
-def me(user: dict = Depends(auth.require_user)) -> dict[str, Any]:
-    out = {"username": user["sub"], "role": user["role"], "citizen_id": user["citizen_id"], "expires_at": user["exp"]}
-    if user["citizen_id"]:
-        with db.get_conn() as conn:
-            c = db.row(conn, "SELECT district, residence_type, preferred_language, consent_given FROM citizens "
-                             "WHERE citizen_id=?", (user["citizen_id"],))
-        out["profile"] = c
-    return out
+@app.middleware("http")
+async def private_response_cache(request: Request, call_next):
+    response = await call_next(request)
+    if request.url.path in {"/ask", "/conversations", "/schemes/recommendations"} or request.url.path.startswith(
+        ("/auth/", "/conversations/", "/referrals/", "/audit/", "/actions/", "/citizens/", "/admin/")
+    ):
+        response.headers["Cache-Control"] = "no-store"
+    return response
 
 
 # ------------------------------------------------------------------ core contract
 @app.post("/ask", response_model=AskResponse)
-def ask(req: AskRequest, x_citizen_id: Optional[str] = Header(default="guest"),
-        user: Optional[dict] = Depends(auth.current_user)) -> AskResponse:
-    return run_ask(req, auth.resolve_citizen(user, x_citizen_id))
+def ask(req: AskRequest, session: auth.Session = Depends(auth.chat_session)) -> AskResponse:
+    if session.role == "admin":
+        raise HTTPException(403, "Sign in as a user to ask about schemes.")
+    return run_ask(req, session.owner_id)
 
 
 @app.post("/eligibility")
@@ -81,8 +75,6 @@ def eligibility(req: EligibilityRequest) -> dict[str, Any]:
     as_of = req.as_of_date or tools.now_ist().date().isoformat()
     with db.get_conn() as conn:
         res = tools.check_eligibility(conn, req.attributes, req.scheme_ids, as_of)
-    if not req.include_not_eligible:  # the UI shows only schemes the citizen can act on
-        res = [r for r in res if r.verdict != "not_eligible" and r.scheme_status != "closed"]
     return {"as_of_date": as_of, "results": [r.model_dump() for r in res]}
 
 
@@ -96,11 +88,12 @@ def _load_action(conn, action_id: str, citizen_id: str) -> dict[str, Any]:
 
 
 @app.post("/actions/{action_id}/confirm")
-def confirm(action_id: str, x_citizen_id: Optional[str] = Header(default="guest"),
-            user: Optional[dict] = Depends(auth.current_user)) -> dict[str, Any]:
-    cid = auth.resolve_citizen(user, x_citizen_id)
+def confirm(action_id: str, session: auth.Session = Depends(auth.require_user)) -> dict[str, Any]:
+    cid = session.owner_id
     trace_id = memory.new_trace_id()
     with db.get_conn() as conn:
+        # Lock before reading the proposal so simultaneous confirms cannot both execute it.
+        conn.execute("BEGIN IMMEDIATE")
         a = _load_action(conn, action_id, cid)
         lang = a.get("language") or "en"
         if a["status"] == "executed":  # idempotent: a second call returns the same result
@@ -124,9 +117,10 @@ def confirm(action_id: str, x_citizen_id: Optional[str] = Header(default="guest"
         memory.add_message(conn, a["conversation_id"], "system", f"[confirmed {action_id}]")
         memory.add_message(conn, a["conversation_id"], "assistant", message, trace_id, "action_completed",
                            ["confirm", "execute", "verify"])
+        conn.execute("UPDATE conversations SET updated_at=datetime('now') WHERE conversation_id=?", (a["conversation_id"],))
         memory.save_audit(conn, trace_id, a["conversation_id"], {
             "trace_id": trace_id, "conversation_id": a["conversation_id"], "citizen_id": cid,
-            "answer_type": "action_completed", "route": ["confirm", "execute", "verify"],
+            "answer_type": "action_completed", "reply_language": lang, "route": ["confirm", "execute", "verify"],
             "actions_confirmed": [{"action_id": action_id, "action_type": a["action_type"], "result": result,
                                    "verified": verified, "confirmed_at": now.isoformat(timespec="seconds")}],
             "model": {"mode": "none (deterministic executor)"}})
@@ -141,25 +135,32 @@ def confirm(action_id: str, x_citizen_id: Optional[str] = Header(default="guest"
 
 
 @app.post("/actions/{action_id}/cancel")
-def cancel(action_id: str, x_citizen_id: Optional[str] = Header(default="guest"),
-           user: Optional[dict] = Depends(auth.current_user)) -> dict[str, Any]:
-    cid = auth.resolve_citizen(user, x_citizen_id)
+def cancel(action_id: str, session: auth.Session = Depends(auth.require_user)) -> dict[str, Any]:
+    cid = session.owner_id
     with db.get_conn() as conn:
+        conn.execute("BEGIN IMMEDIATE")
         a = _load_action(conn, action_id, cid)
         lang = a.get("language") or "en"
         if a["status"] == "executed":
             raise HTTPException(409, "this action was already executed; ask to cancel the booking instead")
+        trace_id = memory.new_trace_id()
+        message = i18n.t("action_cancelled", lang)
         if a["status"] != "cancelled":
             conn.execute("UPDATE actions SET status='cancelled' WHERE action_id=?", (action_id,))
             a["status"] = "cancelled"
             memory.add_message(conn, a["conversation_id"], "system", f"[cancelled {action_id}]")
-        return {"trace_id": memory.new_trace_id(), "answer_type": "answered", "language": lang,
-                "answer": i18n.t("action_cancelled", lang), "action": actions.to_pending(a).model_dump()}
+            memory.add_message(conn, a["conversation_id"], "assistant", message, trace_id, "answered", ["cancel"])
+            memory.save_audit(conn, trace_id, a["conversation_id"], {
+                "trace_id": trace_id, "conversation_id": a["conversation_id"], "citizen_id": cid,
+                "answer_type": "answered", "reply_language": lang, "route": ["cancel"],
+            })
+            conn.execute("UPDATE conversations SET updated_at=datetime('now') WHERE conversation_id=?", (a["conversation_id"],))
+        return {"trace_id": trace_id, "answer_type": "answered", "language": lang,
+                "answer": message, "action": actions.to_pending(a).model_dump()}
 
 
-@app.post("/ingest")
-async def ingest(file: UploadFile = File(...), metadata: str = Form(...),
-                 _admin: Optional[dict] = Depends(auth.admin_or_open)) -> dict[str, Any]:
+@app.post("/ingest", dependencies=[Depends(auth.require_admin)])
+async def ingest(file: UploadFile = File(...), metadata: str = Form(...)) -> dict[str, Any]:
     try:
         meta = kb_ingest.SourceMeta(**json.loads(metadata))
     except Exception as e:
@@ -193,42 +194,43 @@ def health() -> dict[str, Any]:
     return {"status": status, "components": comps}
 
 
-@app.get("/conversations")
-def conversations(citizen_id: Optional[str] = Query(default=None), user: dict = Depends(auth.require_user)
-                  ) -> list[dict[str, Any]]:
-    """Past conversations: a user sees only their own; an admin sees everyone's (optionally one citizen's)."""
-    if user["role"] != "admin":
-        citizen_id = user["citizen_id"]
-    with db.get_conn() as conn:
-        return memory.list_conversations(conn, citizen_id)
-
-
 @app.get("/conversations/{conversation_id}")
-def conversation(conversation_id: str, user: dict = Depends(auth.require_user)) -> dict[str, Any]:
+def conversation(conversation_id: str, session: auth.Session | None = Depends(auth.get_session)) -> dict[str, Any]:
     with db.get_conn() as conn:
+        owner = db.row(conn, "SELECT citizen_id FROM conversations WHERE conversation_id=?", (conversation_id,))
+        if not session or not owner or not session.can_read(owner["citizen_id"]):
+            raise HTTPException(404, "conversation not found")
         c = memory.get_conversation(conn, conversation_id)
     if not c:
         raise HTTPException(404, "conversation not found")
-    if user["role"] != "admin" and c["citizen_id"] != user["citizen_id"]:
-        raise HTTPException(404, "conversation not found")  # do not reveal that it exists
     return c
 
 
+@app.get("/conversations")
+def conversations(session: auth.Session = Depends(auth.require_user)) -> list[dict[str, Any]]:
+    with db.get_conn() as conn:
+        return memory.list_conversations(conn, session.owner_id)
+
+
 @app.get("/referrals/{referral_id}")
-def get_referral(referral_id: str, user: Optional[dict] = Depends(auth.current_user)) -> dict[str, Any]:
+def get_referral(referral_id: str, session: auth.Session | None = Depends(auth.get_session)) -> dict[str, Any]:
     with db.get_conn() as conn:
         r = db.row(conn, "SELECT * FROM referrals WHERE referral_id=?", (referral_id,))
-    if not r or not auth.can_read_owned(user, r["citizen_id"]):
+    if not session or not r or not session.can_read(r["citizen_id"]):
         raise HTTPException(404, "referral not found")
     r["bundle"] = json.loads(r.pop("bundle_json") or "{}")
     return r
 
 
 @app.get("/audit/{trace_id}")
-def audit(trace_id: str, user: Optional[dict] = Depends(auth.current_user)) -> dict[str, Any]:
+def audit(trace_id: str, session: auth.Session | None = Depends(auth.get_session)) -> dict[str, Any]:
     with db.get_conn() as conn:
+        owner = db.row(conn, """SELECT c.citizen_id FROM audit a JOIN conversations c
+            ON c.conversation_id=a.conversation_id WHERE a.trace_id=?""", (trace_id,))
+        if not session or not owner or not session.can_read(owner["citizen_id"]):
+            raise HTTPException(404, "audit record not found")
         rec = memory.get_audit(conn, trace_id)
-    if not rec or not auth.can_read_owned(user, rec.get("citizen_id")):
+    if not rec:
         raise HTTPException(404, "audit record not found")
     return rec
 
@@ -262,50 +264,62 @@ def source(source_id: str) -> dict[str, Any]:
 @app.get("/schemes")
 def schemes(as_of_date: Optional[str] = None) -> list[dict[str, Any]]:
     as_of = as_of_date or tools.now_ist().date().isoformat()
-    out = []
     with db.get_conn() as conn:
-        for s in tools.list_schemes(conn):
-            st = tools.scheme_status(conn, s, as_of)
-            notes = []
-            for n in st["notes"]:
-                if n["type"] == "deadline_extended":
-                    notes.append(f"Last date extended from {n['old']} to {n['new']} by {n['source_id']}")
-                elif n["type"] == "closed_by_circular":
-                    notes.append(f"Closed for new applications from {n['effective_from']} ({n['source_id']})")
-                elif n["type"] == "deadline_passed":
-                    notes.append(f"Last date {n['date']} has passed")
-            for u in st["upcoming"]:
-                notes.append(f"Upcoming change on {u['effective_from']} ({u['source_id']})")
-            docs = [{k: d[k] for k in ("document_name", "mandatory", "notes")} for d in tools.get_required_documents(conn, s["scheme_id"])]
-            out.append({**s, "status": st["status"], "apply_until": st["apply_until"], "days_left": st["days_left"],
-                        "notes": notes, "documents": docs})
+        return _scheme_catalog(conn, as_of)
+
+
+@app.post("/schemes/recommendations")
+def recommended_schemes(req: RecommendationRequest, session: auth.Session = Depends(auth.require_user)) -> list[dict[str, Any]]:
+    as_of = req.as_of_date or tools.now_ist().date().isoformat()
+    with db.get_conn() as conn:
+        attributes = req.attributes
+        if attributes is None:
+            attributes = tools.lookup_citizen(conn, session.owner_id, as_of).get("attributes", {})
+            if req.conversation_id:
+                saved = db.row(conn, "SELECT state_json FROM conversations WHERE conversation_id=? AND citizen_id=?",
+                               (req.conversation_id, session.owner_id))
+                if not saved:
+                    raise HTTPException(404, "conversation not found")
+                context = json.loads(saved["state_json"] or "{}")
+                if context.get("subject") == "self":
+                    attributes.update(context.get("attributes", {}))
+        verdicts = {v.scheme_id: v.verdict for v in tools.check_eligibility(conn, attributes, None, as_of)
+                    if v.verdict in tools.RECOMMENDED_VERDICTS}
+        return [{**s, "verdict": verdicts[s["scheme_id"]]} for s in _scheme_catalog(conn, as_of, verdicts)]
+
+
+def _scheme_catalog(conn, as_of: str, only: dict[str, str] | None = None) -> list[dict[str, Any]]:
+    out = []
+    for s in tools.list_schemes(conn):
+        if only is not None and s["scheme_id"] not in only:
+            continue
+        st = tools.scheme_status(conn, s, as_of)
+        notes = []
+        for n in st["notes"]:
+            if n["type"] == "deadline_extended":
+                notes.append(f"Last date extended from {n['old']} to {n['new']} by {n['source_id']}")
+            elif n["type"] == "closed_by_circular":
+                notes.append(f"Closed for new applications from {n['effective_from']} ({n['source_id']})")
+            elif n["type"] == "deadline_passed":
+                notes.append(f"Last date {n['date']} has passed")
+        for u in st["upcoming"]:
+            notes.append(f"Upcoming change on {u['effective_from']} ({u['source_id']})")
+        docs = [{k: d[k] for k in ("document_name", "mandatory", "notes")} for d in tools.get_required_documents(conn, s["scheme_id"])]
+        out.append({**s, "status": st["status"], "apply_until": st["apply_until"], "days_left": st["days_left"],
+                    "notes": notes, "documents": docs})
     return out
 
 
-@app.get("/citizens/demo")
-def citizens_demo(_admin: dict = Depends(auth.require_admin)) -> list[dict[str, Any]]:
-    """Admin only: IDs and non-identifying fields of every citizen."""
+@app.get("/citizens/demo", dependencies=[Depends(auth.require_admin)])
+def citizens_demo() -> list[dict[str, Any]]:
+    """List citizen IDs and basic fields for account administration."""
     with db.get_conn() as conn:
         return db.rows(conn, "SELECT citizen_id, district, residence_type, preferred_language, consent_given "
                              "FROM citizens ORDER BY citizen_id")
 
 
-@app.get("/admin/users")
-def admin_users(_admin: dict = Depends(auth.require_admin)) -> list[dict[str, Any]]:
-    """Admin only: every citizen (a potential user) with account and conversation counts."""
-    with db.get_conn() as conn:
-        return db.rows(conn, """
-            SELECT c.citizen_id, c.district, c.residence_type, c.preferred_language, c.consent_given,
-                   CASE WHEN u.username IS NULL THEN 0 ELSE 1 END AS has_signed_in,
-                   (SELECT COUNT(*) FROM conversations v WHERE v.citizen_id = c.citizen_id) AS conversations,
-                   (SELECT MAX(updated_at) FROM conversations v WHERE v.citizen_id = c.citizen_id) AS last_active
-            FROM citizens c LEFT JOIN users u ON u.citizen_id = c.citizen_id
-            ORDER BY last_active IS NULL, last_active DESC, c.citizen_id""")
-
-
-@app.post("/admin/load")
-async def admin_load(files: list[UploadFile] = File(...),
-                     _admin: Optional[dict] = Depends(auth.admin_or_open)) -> dict[str, Any]:
+@app.post("/admin/load", dependencies=[Depends(auth.require_admin)])
+async def admin_load(files: list[UploadFile] = File(...)) -> dict[str, Any]:
     report: dict[str, Any] = {"loaded": {}, "errors": []}
     order = list(loader.TABLES)
     items = []

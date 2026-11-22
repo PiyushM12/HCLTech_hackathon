@@ -174,9 +174,7 @@ def compose_discovery(*, lang: str, verdicts: list[SchemeVerdict], schemes: dict
     open_v = [v for v in verdicts if statuses[v.scheme_id]["status"] == "open"]
     eligible = [v for v in open_v if v.verdict == "appears_eligible"]
     maybe = [v for v in open_v if v.verdict == "need_more_information"]
-    verify = [v for v in open_v if v.verdict == "verify_with_officer"]
-    upcoming = [v for v in verdicts if statuses[v.scheme_id]["status"] == "upcoming" and v.verdict != "not_eligible"]
-    not_el = [v for v in open_v if v.verdict == "not_eligible"]
+    upcoming = [v for v in verdicts if statuses[v.scheme_id]["status"] == "upcoming"]
     if eligible:
         lines.append(t("disc_eligible_header", lang))
         for v in eligible:
@@ -199,13 +197,6 @@ def compose_discovery(*, lang: str, verdicts: list[SchemeVerdict], schemes: dict
             lines.append(f"- {i18n.scheme_name(s, lang)}: " + t("needs", lang, attrs=", ".join(
                 i18n.attr_label(a, lang) for a in v.unknown)))
             cites += rule_cites(v)
-    if verify:
-        lines.append(t("disc_verify_header", lang))
-        for v in verify:
-            s = schemes[v.scheme_id]
-            srcs = ", ".join(sorted({c.get("source_id", "") for c in v.conflicts if c.get("source_id")}))
-            lines.append(f"- {i18n.scheme_name(s, lang)} ({srcs})")
-            cites += [(c["source_id"], "") for c in v.conflicts if c.get("source_id")]
     if upcoming:
         lines.append(t("disc_upcoming_header", lang))
         for v in upcoming:
@@ -214,7 +205,7 @@ def compose_discovery(*, lang: str, verdicts: list[SchemeVerdict], schemes: dict
                 statuses[v.scheme_id]["apply_from"])).lstrip(" :"))
             cites.append((s.get("source_id") or "", "6"))
     lines.append(t("caveat", lang))
-    return _draft("\n".join(lines), cites, "discovery", evidence=[f"count {len(not_el)}"])
+    return _draft("\n".join(lines), cites, "discovery")
 
 
 def compose_scheme_info(*, lang: str, scheme: dict[str, Any], status: dict[str, Any], rules: list[dict[str, Any]],

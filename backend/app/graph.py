@@ -8,8 +8,10 @@ with one job each; only two of them may call the LLM (classifier, free-text comp
                                 +-> eligibility --+
                                 +-> knowledge ----+-> critic -> (revise -> critic) -> policy -> [referral] -> finalize
                                 +-> action -------+
-                                +-> referral (grievance / fraud) -----------------------------------------> finalize
+                                +-> referral (grievance / fraud)
+                                reterval  -----------------------------------------> finalize
 """
+
 from __future__ import annotations
 
 import json
@@ -216,7 +218,8 @@ def eligibility(state: S) -> dict:
                     "unknown": v.unknown} for v in verdicts], ms=(time.perf_counter() - t0) * 1000)
     mode = "eligibility_check" if (it.type == "eligibility_check" and it.scheme_ids) else "discovery"
     focus_ids = it.scheme_ids if mode == "eligibility_check" else [
-        v.scheme_id for v in verdicts if statuses[v.scheme_id]["status"] in {"open", "upcoming"}]
+        v.scheme_id for v in verdicts if v.verdict in tools.RECOMMENDED_VERDICTS
+        and statuses[v.scheme_id]["status"] in {"open", "upcoming"}]
     focus = [v for v in verdicts if v.scheme_id in focus_ids]
     conv = state["conv"]
     asked = set(conv.get("asked") or [])
@@ -275,9 +278,8 @@ def eligibility(state: S) -> dict:
         draft = composer.compose_discovery(lang=lang, verdicts=focus, schemes=schemes, statuses=statuses, attrs=attrs)
     conflicts = [c for v in focus for c in v.conflicts]
     # per-scheme facts are added by the critic's evidence builder; only computed values go here
-    computed = [f"count {sum(1 for v in focus if v.verdict == 'not_eligible')}"]
     return {"attrs": attrs, "attr_sources": sources, "verdicts": verdicts, "statuses": statuses, "focus": focus_ids,
-            "tool_calls": calls, "draft": draft, "evidence": computed, "conflicts": conflicts, "state_updates": upd,
+            "tool_calls": calls, "draft": draft, "conflicts": conflicts, "state_updates": upd,
             "mode": mode}
 
 
@@ -317,7 +319,7 @@ def knowledge(state: S) -> dict:
         cit = state["citizen"]
         if not cit.get("found"):
             clar = t("need_login", lang)
-        elif not cit.get("attributes"):
+        elif cit.get("consent_given") != "Y":
             clar = t("need_consent", lang)
         else:
             apps = tools.get_applications(conn, state["citizen_id"])
@@ -450,7 +452,7 @@ def action(state: S) -> dict:
         res = actions.plan_reminder(conn, citizen=citizen, citizen_id=cid, scheme=g, status=g["effective"], lang=lang,
                                     as_of=as_of, conversation_id=conv_id)
     else:  # application draft
-        if not citizen.get("attributes"):
+        if citizen.get("consent_given") != "Y":
             res = actions.PlanResult(kind="clarify", answer=t("need_consent", lang), tool_calls=[])
         else:
             scheme = schemes.get(sid) or tools.scheme_row(conn, sid)
@@ -715,14 +717,14 @@ def finalize(state: S) -> dict:
                                "pinned": bool(h.get("pinned"))} for h in state.get("retrieved") or []],
         "citations": [c.model_dump() for c in citations],
         "tools_invoked": [c.model_dump() for c in state.get("tool_calls") or []],
-        "rules_evaluated": [{"scheme_id": v.scheme_id, "verdict": v.verdict,
-                             "rules": [r.model_dump() for r in v.rules], "conflicts": v.conflicts}
+        "rules_evaluated": [v.model_dump()
                             for v in state.get("verdicts") or [] if v.scheme_id in (state.get("focus") or [])],
         "questions_asked": [q.model_dump() for q in state.get("questions") or []],
         "actions_proposed": [state["pending_action"].model_dump()] if state.get("pending_action") else [],
         "actions_confirmed": [],
         "critic": critic_out.model_dump() if critic_out is not None else None,
         "referral": {"referral_id": state.get("referral_id"), "reasons": state.get("referral_reasons") or []},
+        "referral_summary": state.get("referral"),
         "conflicts_detected": state.get("conflicts") or [],
         "model": {"mode": llm.mode, "name": None if llm.mock else llm.model, "embedding": vs.get_embedder().model_name},
         "llm": state["stats"].as_dict(), "latency_ms": {"total": total_ms, **(state.get("timings") or {})},
@@ -781,8 +783,7 @@ def run_ask(req: AskRequest, citizen_id: str) -> AskResponse:
             trace_id=trace_id, conversation_id=out["conversation_id"], answer_type=out["answer_type"],
             language=out["lang"], answer=out["answer"], intent=it, citations=out.get("citations_final") or [],
             tools_invoked=[ToolCall(**{**c.model_dump(), "output": pii.redact_obj(c.output)}) for c in out.get("tool_calls") or []],
-            eligibility=[v for v in out.get("verdicts") or [] if v.scheme_id in (out.get("focus") or [])
-                         and not (out.get("mode") == "discovery" and v.verdict == "not_eligible")],
+            eligibility=[v for v in out.get("verdicts") or [] if v.scheme_id in (out.get("focus") or [])],
             questions=out.get("questions") or [], pending_action=out.get("pending_action"), critic=critic_out,
             conflicts_detected=out.get("conflicts") or [], referral_id=out.get("referral_id"),
             referral=out.get("referral"), as_of_date=as_of)

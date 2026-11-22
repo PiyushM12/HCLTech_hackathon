@@ -1,0 +1,39 @@
+citizen_id,full_name,phone,date_of_birth,gender,district,residence_type,annual_household_income,occupation,category,is_disabled,disability_percent,land_holding_acres,preferred_language,consent_given,national_id_last4,edge_case_note
+C1001,Savitri Bai,000-000-1001,1959-05-10,female,Nayagaon,rural,150000,retired,obc,N,0,0,hi,Y,1824,income exactly at the pension limit (150000)
+C1002,Shanti Devi,000-000-1002,1958-02-02,female,Sundarpur,urban,150001,homemaker,general,N,0,0,hi,Y,0409,income one rupee over the pension limit (150001)
+C1003,Hariprasad Tiwari,000-000-1003,1966-11-21,male,Nayagaon,rural,100000,retired,general,N,0,1.0,hi,Y,4506,age exactly 60 on 2026-11-21 (pension minimum)
+C1004,Ramkali Devi,000-000-1004,1966-11-22,female,Nayagaon,rural,100000,homemaker,obc,N,0,0,hi,Y,4012,one day short of 60 on 2026-11-21
+C1005,Mahesh Patel,000-000-1005,1981-08-19,male,Nayagaon,rural,200000,farmer,obc,N,0,5.0,hi,Y,3657,land holding exactly at the Kisan Samriddhi cap (5 acres)
+C1006,Gopal Singh,000-000-1006,1963-06-01,male,Nayagaon,rural,90000,farmer,sc,N,0,2.0,hi,Y,2286,eligible for several overlapping schemes (pension + Kisan + housing)
+C1007,Usha Rani,000-000-1007,1956-04-04,female,Sundarpur,urban,80000,retired,general,N,0,0,en,Y,1679,already applied (pension submitted 2026-10-20)
+C1008,Baldev Raj,000-000-1008,1960-01-15,male,Nayagaon,rural,110000,farmer,obc,N,0,1.5,hi,Y,8935,application rejected (age record mismatch)
+C1009,Jamuna Prasad,000-000-1009,1954-07-07,male,Nayagaon,rural,70000,retired,sc,N,0,0,hi,Y,1424,application pending beyond the 45-day target (submitted 2026-08-14)
+C1010,Kiran Kumar,000-000-1010,1975-09-09,male,Kaverinadu,rural,,,,N,0,,kn,Y,9674,"profile with missing attributes (income, occupation, land)"
+C1011,Aditya Rao,000-000-1011,2008-03-03,male,Kaverinadu,urban,250000,student,general,N,0,0,kn,Y,6912,Medhavi scholarship: last date is today (2026-11-21)
+C1012,Velu Murugan,000-000-1012,1991-02-14,male,Thenpuram,rural,120000,daily_wage,obc,N,0,0,ta,Y,0520,Suraksha Bima: last date was yesterday (2026-11-20)
+C1013,Priya Natarajan,000-000-1013,2009-06-30,female,Thenpuram,urban,250000,student,obc,N,0,0,ta,Y,0488,income exactly at the Kanya Vidya limit (250000)
+C1014,Kamla Devi,000-000-1014,1957-03-14,female,Nayagaon,rural,96000,homemaker,obc,N,0,1.5,hi,Y,1535,
+C1015,Ramesh Yadav,000-000-1015,1979-07-02,male,Nayagaon,rural,145000,farmer,obc,N,0,3.0,hi,Y,3582,
+C1016,Pooja Kumari,000-000-1016,2010-01-19,female,Nayagaon,rural,110000,student,sc,N,0,0.5,hi,Y,3811,
+C1017,Suresh Paswan,000-000-1017,1988-11-30,male,Nayagaon,rural,84000,daily_wage,sc,N,0,0.0,hi,Y,8279,
+C1018,Anita Sharma,000-000-1018,1985-05-21,female,Sundarpur,urban,420000,salaried,general,N,0,0.0,en,Y,9863,
+C1019,Mohammad Irfan,000-000-1019,1992-09-08,male,Sundarpur,urban,132000,street_vendor,obc,N,0,0.0,hi,Y,0434,
+C1020,Geeta Verma,000-000-1020,1961-12-05,female,Sundarpur,urban,140000,retired,general,N,0,0.0,hi,Y,9195,
+C1021,Rahul Gupta,000-000-1021,2004-04-11,male,Sundarpur,urban,280000,student,general,N,0,0.0,en,Y,3257,
+C1022,Shabnam Bano,000-000-1022,1975-02-27,female,Sundarpur,rural,72000,homemaker,obc,Y,55,0.5,hi,Y,8928,
+C1023,Manjunath Gowda,000-000-1023,1970-06-16,male,Kaverinadu,rural,160000,farmer,obc,N,0,4.5,kn,Y,6873,
+C1024,Lakshmamma,000-000-1024,1954-08-09,female,Kaverinadu,rural,60000,homemaker,sc,N,0,1.0,kn,Y,3611,
+C1025,Kavya Shetty,000-000-1025,2007-10-03,female,Kaverinadu,urban,230000,student,general,N,0,0.0,kn,Y,7359,
+C1026,Basavaraj Hiremath,000-000-1026,1983-01-25,male,Kaverinadu,rural,98000,construction_worker,st,N,0,0.0,kn,Y,9654,
+C1027,Shivakumar Naik,000-000-1027,1990-03-12,male,Kaverinadu,rural,150000,self_employed,obc,Y,35,0.0,kn,Y,4557,
+C1028,Murugan Selvam,000-000-1028,1965-04-18,male,Thenpuram,rural,115000,farmer,obc,N,0,2.5,ta,Y,0106,
+C1029,Meenakshi Sundaram,000-000-1029,1958-09-22,female,Thenpuram,urban,130000,retired,general,N,0,0.0,ta,Y,2615,
+C1030,Divya Rajendran,000-000-1030,2006-12-14,female,Thenpuram,rural,190000,student,sc,N,0,0.8,ta,Y,6924,
+C1031,Karthik Raja,000-000-1031,1996-07-07,male,Thenpuram,urban,105000,daily_wage,obc,N,0,0.0,ta,Y,5574,
+C1032,Selvi Arumugam,000-000-1032,1980-11-02,female,Thenpuram,rural,88000,daily_wage,st,N,0,0.0,ta,Y,4552,
+C1033,Prakash Mishra,000-000-1033,1972-02-03,male,Nayagaon,rural,350000,farmer,general,N,0,6.0,hi,N,2547,
+C1034,Sunita Kushwaha,000-000-1034,1968-10-10,female,Nayagaon,rural,76000,homemaker,obc,N,0,0.0,hi,N,3527,
+C1035,Arjun Reddy,000-000-1035,2001-05-29,male,Kaverinadu,urban,260000,unemployed,general,N,0,0.0,en,N,5514,
+C1036,Revathi Kannan,000-000-1036,1987-08-15,female,Thenpuram,urban,180000,self_employed,obc,N,0,0.0,ta,N,1674,
+C1037,Imran Qureshi,000-000-1037,1994-12-01,male,Sundarpur,urban,95000,construction_worker,obc,N,0,0.0,hi,N,1519,
+C1038,Nirmala Hegde,000-000-1038,1950-01-30,female,Kaverinadu,rural,55000,retired,general,Y,45,2.0,kn,Y,6224,

@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0194",
+  "citizen_question": "My son got 74.6% in Class 12 and has joined B.Com. Can he get the Medhavi award? It is almost 75%.",
+  "intent": "eligibility",
+  "resolution": "Sorry, he is not eligible. Medhavi Chhatra Protsahan Yojana needs 75% or more in Class 12, and marks are not rounded up. A score of 74.6% is below the limit. The service centre or the SchemeSathi assistant can help you check whether he qualifies for any other scheme.",
+  "tags": ["medhavi", "class 12 marks", "eligibility", "not eligible"],
+  "resolved_at": "2026-10-12",
+  "scheme_id": "SCH-SCH-02",
+  "language": "en",
+  "needed_human_officer": "N"
+}

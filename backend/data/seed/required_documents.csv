@@ -1,0 +1,38 @@
+scheme_id,document_name,mandatory,notes,document_name_hi,document_name_kn,document_name_ta
+SCH-PEN-01,Age proof certificate,Y,"Birth certificate, school leaving certificate or a certificate from a government doctor",आयु प्रमाण पत्र,ವಯಸ್ಸಿನ ಪ್ರಮಾಣಪತ್ರ,வயதுச் சான்றிதழ்
+SCH-PEN-01,Income certificate,Y,Issued by the Tehsildar in the last 12 months,आय प्रमाण पत्र,ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ,வருமானச் சான்றிதழ்
+SCH-PEN-01,Bank passbook,Y,First page with account holder name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-PEN-01,Residence certificate,Y,Or ration card showing a Mitrapur address,निवास प्रमाण पत्र,ವಾಸಸ್ಥಳ ಪ್ರಮಾಣಪತ್ರ,இருப்பிடச் சான்றிதழ்
+SCH-PEN-01,Passport-size photograph,N,Two copies; can be taken at the service centre,पासपोर्ट साइज़ फोटो,ಪಾಸ್‌ಪೋರ್ಟ್ ಅಳತೆಯ ಫೋಟೋ,பாஸ்போர்ட் அளவு புகைப்படம்
+SCH-SCH-01,School or college enrolment certificate,Y,For the current academic year,स्कूल या कॉलेज का नामांकन प्रमाण पत्र,ಶಾಲೆ ಅಥವಾ ಕಾಲೇಜು ದಾಖಲಾತಿ ಪ್ರಮಾಣಪತ್ರ,பள்ளி அல்லது கல்லூரி சேர்க்கைச் சான்றிதழ்
+SCH-SCH-01,Income certificate,Y,Issued in the last 12 months,आय प्रमाण पत्र,ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ,வருமானச் சான்றிதழ்
+SCH-SCH-01,Previous year marksheet,Y,Class 8 or later,पिछले साल की अंकसूची,ಹಿಂದಿನ ವರ್ಷದ ಅಂಕಪಟ್ಟಿ,முந்தைய ஆண்டு மதிப்பெண் சான்றிதழ்
+SCH-SCH-01,Bank passbook,Y,Account in the student's name or joint with a parent,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-SCH-01,Residence certificate,N,Needed only if the school is outside Mitrapur Pradesh,निवास प्रमाण पत्र,ವಾಸಸ್ಥಳ ಪ್ರಮಾಣಪತ್ರ,இருப்பிடச் சான்றிதழ்
+SCH-FRM-01,Land record (khatauni),Y,Current record showing the farmer's name and area,भूमि अभिलेख (खतौनी),ಭೂ ದಾಖಲೆ (ಪಹಣಿ),நில ஆவணம் (பட்டா)
+SCH-FRM-01,Income certificate,Y,Issued in the last 12 months,आय प्रमाण पत्र,ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ,வருமானச் சான்றிதழ்
+SCH-FRM-01,Bank passbook,Y,First page with account holder name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-FRM-01,Tenancy agreement,N,Only for tenant farmers; accepted in place of the land record,बटाई / किरायेदारी अनुबंध,ಗೇಣಿ ಒಪ್ಪಂದ,குத்தகை ஒப்பந்தம்
+SCH-HSG-01,Income certificate,Y,Issued in the last 12 months,आय प्रमाण पत्र,ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ,வருமானச் சான்றிதழ்
+SCH-HSG-01,Land record of the house plot,Y,Plot must be in the name of a household member,घर के प्लॉट का भूमि अभिलेख,ಮನೆ ನಿವೇಶನದ ಭೂ ದಾಖಲೆ,வீட்டு மனையின் நில ஆவணம்
+SCH-HSG-01,Bank passbook,Y,First page with account holder name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-HSG-01,Caste certificate,N,Only if applying under the SC/ST priority condition,जाति प्रमाण पत्र,ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ,சாதிச் சான்றிதழ்
+SCH-HSG-01,Photo of the current house,N,Taken by the block surveyor if not provided,वर्तमान घर की फोटो,ಈಗಿನ ಮನೆಯ ಫೋಟೋ,தற்போதைய வீட்டின் புகைப்படம்
+SCH-DIS-01,Disability certificate,Y,Issued by the District Medical Board; a UDID card is also accepted (CIR-2026-006),दिव्यांगता प्रमाण पत्र,ಅಂಗವೈಕಲ್ಯ ಪ್ರಮಾಣಪತ್ರ,மாற்றுத்திறன் சான்றிதழ்
+SCH-DIS-01,Income certificate,Y,Issued in the last 12 months,आय प्रमाण पत्र,ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ,வருமானச் சான்றிதழ்
+SCH-DIS-01,Bank passbook,Y,First page with account holder name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-DIS-01,Passport-size photograph,N,Needed for the bus pass,पासपोर्ट साइज़ फोटो,ಪಾಸ್‌ಪೋರ್ಟ್ ಅಳತೆಯ ಫೋಟೋ,பாஸ்போர்ட் அளவு புகைப்படம்
+SCH-INS-01,Age proof certificate,Y,Any government document showing date of birth,आयु प्रमाण पत्र,ವಯಸ್ಸಿನ ಪ್ರಮಾಣಪತ್ರ,வயதுச் சான்றிதழ்
+SCH-INS-01,Occupation certificate or labour card,Y,Labour card or a letter from the Gram Panchayat,व्यवसाय प्रमाण पत्र या श्रमिक कार्ड,ಉದ್ಯೋಗ ಪ್ರಮಾಣಪತ್ರ ಅಥವಾ ಕಾರ್ಮಿಕ ಕಾರ್ಡ್,தொழில் சான்றிதழ் அல்லது தொழிலாளர் அட்டை
+SCH-INS-01,Bank passbook,Y,First page with account holder name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-INS-01,Nominee details form,N,Can be filled at the service centre,नामांकित व्यक्ति (नॉमिनी) फॉर्म,ನಾಮನಿರ್ದೇಶಿತರ ವಿವರ ಫಾರ್ಮ್,நியமனதாரர் விவரப் படிவம்
+SCH-SCH-02,Class 12 marksheet,Y,Must show 75% or more,कक्षा 12 की अंकसूची,12ನೇ ತರಗತಿ ಅಂಕಪಟ್ಟಿ,12ஆம் வகுப்பு மதிப்பெண் சான்றிதழ்
+SCH-SCH-02,Income certificate,Y,Issued in the last 12 months,आय प्रमाण पत्र,ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ,வருமானச் சான்றிதழ்
+SCH-SCH-02,College admission letter,Y,For the current academic year,कॉलेज प्रवेश पत्र,ಕಾಲೇಜು ಪ್ರವೇಶ ಪತ್ರ,கல்லூரி சேர்க்கைக் கடிதம்
+SCH-SCH-02,Bank passbook,Y,Account in the student's name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-FRM-02,Land record (khatauni),Y,Current record,भूमि अभिलेख (खतौनी),ಭೂ ದಾಖಲೆ (ಪಹಣಿ),நில ஆவணம் (பட்டா)
+SCH-FRM-02,Quotation from an approved dealer,Y,Dealer must be on the department list,मान्य डीलर का कोटेशन,ಅನುಮೋದಿತ ಡೀಲರ್ ದರಪಟ್ಟಿ,அங்கீகரிக்கப்பட்ட விற்பனையாளரின் விலைப்புள்ளி
+SCH-FRM-02,Bank passbook,Y,First page with account holder name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்
+SCH-HSG-02,Rent agreement,Y,Registered or notarised,किराया अनुबंध,ಬಾಡಿಗೆ ಒಪ್ಪಂದ,வாடகை ஒப்பந்தம்
+SCH-HSG-02,Income certificate,Y,Issued in the last 12 months,आय प्रमाण पत्र,ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ,வருமானச் சான்றிதழ்
+SCH-HSG-02,Bank passbook,Y,First page with account holder name,बैंक पासबुक,ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್,வங்கிக் கணக்குப் புத்தகம்

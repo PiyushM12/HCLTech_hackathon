@@ -1,0 +1,13 @@
+centre_id,name,district,block,address,working_days,working_hours,languages,contact_phone
+JSK-NYG-01,"Jan Seva Kendra, Nayagaon Block",Nayagaon,Nayagaon,"Near Tehsil Office, Main Road, Nayagaon",Mon-Sat,10:00-17:00,hi;en,000-000-0101
+JSK-NYG-02,"Jan Seva Kendra, Barhi Block",Nayagaon,Barhi,"Panchayat Bhawan, Barhi",Mon-Fri,10:00-16:00,hi,000-000-0102
+JSK-NYG-03,"Jan Seva Kendra, Pipra Block",Nayagaon,Pipra,"Opposite Primary Health Centre, Pipra",Mon-Sat,09:30-16:30,hi,000-000-0103
+JSK-SDP-01,"Nagar Seva Kendra, Sundarpur Civil Lines",Sundarpur,Civil Lines,"Collectorate Annexe, Civil Lines, Sundarpur",Mon-Sat,09:00-18:00,hi;en,000-000-0201
+JSK-SDP-02,"Nagar Seva Kendra, Sundarpur Old City",Sundarpur,Old City,"Ward 12 Community Hall, Old City, Sundarpur",Mon-Fri,10:00-17:00,hi;en;ta,000-000-0202
+JSK-SDP-03,"Jan Seva Kendra, Rampura Block",Sundarpur,Rampura,"Block Office Campus, Rampura",Mon-Sat,10:00-17:00,hi,000-000-0203
+JSK-KVN-01,"Nagarika Seva Kendra, Kaverinadu Town",Kaverinadu,Kaverinadu Town,"Taluk Office Road, Kaverinadu",Mon-Sat,10:00-17:00,kn;en;hi,000-000-0301
+JSK-KVN-02,"Nagarika Seva Kendra, Hosahalli Block",Kaverinadu,Hosahalli,"Gram Panchayat Building, Hosahalli",Mon-Fri,10:00-16:00,kn,000-000-0302
+JSK-KVN-03,"Nagarika Seva Kendra, Belur Kere Block",Kaverinadu,Belur Kere,"Near Bus Stand, Belur Kere",Tue-Sat,10:00-17:00,kn;ta,000-000-0303
+JSK-TNP-01,"Makkal Seva Maiyam, Thenpuram Town",Thenpuram,Thenpuram Town,"Municipal Office Complex, Thenpuram",Mon-Sat,09:30-17:30,ta;en;hi,000-000-0401
+JSK-TNP-02,"Makkal Seva Maiyam, Kovilpatti Block",Thenpuram,Kovilpatti,"Block Development Office, Kovilpatti",Mon-Fri,10:00-16:00,ta,000-000-0402
+JSK-TNP-03,"Makkal Seva Maiyam, Ambur Salai Block",Thenpuram,Ambur Salai,"Panchayat Union Office, Ambur Salai",Mon-Sat,10:00-17:00,ta;kn,000-000-0403

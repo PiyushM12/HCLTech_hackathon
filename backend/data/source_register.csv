@@ -1,0 +1,76 @@
+source_id,doc_type,title,language,authority_level,scheme_id,last_updated,effective_from,valid_until,supersedes,provenance,synthetic,file
+GL-PEN-01,guideline,Vriddhjan Pension Yojana – Scheme Guidelines,en,1,SCH-PEN-01,2026-03-20,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-PEN-01.md
+GL-SCH-01,guideline,Kanya Vidya Chhatravritti – Scheme Guidelines 2026-27,en,1,SCH-SCH-01,2026-08-20,2026-09-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-SCH-01.md
+GL-FRM-01,guideline,Kisan Samriddhi Yojana – Scheme Guidelines,en,1,SCH-FRM-01,2026-03-25,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-FRM-01.md
+GL-HSG-01,guideline,Grameen Awas Sahayata Yojana – Scheme Guidelines 2026-27,en,1,SCH-HSG-01,2026-05-20,2026-06-01,2027-03-31,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-HSG-01.md
+GL-DIS-01,guideline,Divyang Sambal Yojana – Scheme Guidelines,en,1,SCH-DIS-01,2026-03-20,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-DIS-01.md
+GL-INS-01,guideline,Suraksha Bima Yojana – Scheme Guidelines 2026-27,en,1,SCH-INS-01,2026-08-25,2026-09-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-INS-01.md
+GL-SCH-02,guideline,Medhavi Chhatra Protsahan Yojana – Scheme Guidelines 2026-27,en,1,SCH-SCH-02,2026-09-20,2026-10-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-SCH-02.md
+GL-FRM-02,guideline,Krishi Yantra Anudan Yojana – Scheme Guidelines 2026-27,en,1,SCH-FRM-02,2026-03-25,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-FRM-02.md
+GL-HSG-02,guideline,Shahari Kiraya Sahayata Yojana – Scheme Guidelines,en,1,SCH-HSG-02,2026-11-05,2027-01-15,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-HSG-02.md
+GL-PEN-01-HI,guideline,वृद्धजन पेंशन योजना – दिशानिर्देश सारांश (हिंदी),hi,1,SCH-PEN-01,2026-09-10,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-PEN-01-HI.md
+GL-PEN-01-KN,guideline,ವೃದ್ಧಜನ ಪಿಂಚಣಿ ಯೋಜನೆ – ಮಾರ್ಗಸೂಚಿ ಸಾರಾಂಶ (ಕನ್ನಡ),kn,1,SCH-PEN-01,2026-09-10,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-PEN-01-KN.md
+GL-PEN-01-TA,guideline,முதியோர் ஓய்வூதியத் திட்டம் – வழிகாட்டுதல் சுருக்கம் (தமிழ்),ta,1,SCH-PEN-01,2026-09-10,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-PEN-01-TA.md
+GL-FRM-01-HI,guideline,किसान समृद्धि योजना – दिशानिर्देश सारांश (हिंदी),hi,1,SCH-FRM-01,2026-08-10,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-FRM-01-HI.md
+GL-SCH-01-HI,guideline,कन्या विद्या छात्रवृत्ति – दिशानिर्देश सारांश (हिंदी),hi,1,SCH-SCH-01,2026-11-16,2026-09-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-SCH-01-HI.md
+GL-SCH-01-TA,guideline,கன்யா வித்யா கல்வி உதவித்தொகை – வழிகாட்டுதல் சுருக்கம் (தமிழ்),ta,1,SCH-SCH-01,2026-11-16,2026-09-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-SCH-01-TA.md
+GL-DIS-01-KN,guideline,ದಿವ್ಯಾಂಗ ಸಂಬಲ ಯೋಜನೆ – ಮಾರ್ಗಸೂಚಿ ಸಾರಾಂಶ (ಕನ್ನಡ),kn,1,SCH-DIS-01,2026-08-10,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-DIS-01-KN.md
+GL-INS-01-TA,guideline,சுரக்ஷா காப்பீட்டுத் திட்டம் – வழிகாட்டுதல் சுருக்கம் (தமிழ்),ta,1,SCH-INS-01,2026-08-28,2026-09-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-INS-01-TA.md
+GL-HSG-01-KN,guideline,ಗ್ರಾಮೀಣ ಆವಾಸ ಸಹಾಯತಾ ಯೋಜನೆ – ಮಾರ್ಗಸೂಚಿ ಸಾರಾಂಶ (ಕನ್ನಡ),kn,1,SCH-HSG-01,2026-05-25,2026-06-01,2027-03-31,,LLM: claude (KB generation prompt v2),Y,kb/docs/GL-HSG-01-KN.md
+POL-FEE-01,policy,Policy on Fees and Fraud Protection,en,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/POL-FEE-01.md
+POL-FEE-01-HI,policy,शुल्क और धोखाधड़ी से सुरक्षा नीति (हिंदी),hi,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/POL-FEE-01-HI.md
+POL-FEE-01-KN,policy,ಶುಲ್ಕ ಮತ್ತು ವಂಚನೆ ತಡೆ ನೀತಿ (ಕನ್ನಡ),kn,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/POL-FEE-01-KN.md
+POL-FEE-01-TA,policy,கட்டணம் மற்றும் மோசடி தடுப்புக் கொள்கை (தமிழ்),ta,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/POL-FEE-01-TA.md
+POL-APPT-01,policy,Policy on Service Centre Appointments,en,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/POL-APPT-01.md
+POL-GRV-01,policy,Policy on Grievances and Service Timelines,en,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/POL-GRV-01.md
+POL-AI-01,policy,Policy on the SchemeSathi Digital Assistant,en,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/POL-AI-01.md
+CIR-2026-001,circular,Circular: Monthly Pension Credit Date,en,2,SCH-PEN-01,2026-04-20,2026-05-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-001.md
+CIR-2026-002,circular,परिपत्र: आय प्रमाण पत्र की वैधता 12 महीने,hi,2,,2026-04-25,2026-05-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-002.md
+CIR-2026-003,circular,Circular: Kanya Vidya Chhatravritti 2026-27 Application Cycle,en,2,SCH-SCH-01,2026-08-25,2026-09-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-003.md
+CIR-2026-004,amendment,Amendment: Revised Income Limit for Vriddhjan Pension Yojana,en,2,SCH-PEN-01,2026-06-15,2026-07-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-004.md
+CIR-2026-005,circular,सार्वजनिक सूचना: वृद्धजन पेंशन योजना की नई आय सीमा,hi,2,SCH-PEN-01,2026-06-18,2026-07-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-005.md
+CIR-2026-006,amendment,ತಿದ್ದುಪಡಿ: ದಿವ್ಯಾಂಗ ಸಂಬಲ ಯೋಜನೆಗೆ UDID ಕಾರ್ಡ್ ಮಾನ್ಯ,kn,2,SCH-DIS-01,2026-07-20,2026-08-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-006.md
+CIR-2026-007,amendment,संशोधन: किसान समृद्धि योजना की भूमि सीमा 5 एकड़,hi,2,SCH-FRM-01,2026-07-22,2026-08-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-007.md
+CIR-2026-008,circular,Fraud Advisory / धोखाधड़ी चेतावनी: No Release Fee,mixed,2,,2026-09-05,2026-09-05,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-008.md
+CIR-2026-009,circular,Circular: Closure of Krishi Yantra Anudan Yojana,en,2,SCH-FRM-02,2026-09-25,2026-10-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-009.md
+CIR-2026-010,circular,சுற்றறிக்கை: சுரக்ஷா காப்பீட்டுப் பதிவு 2026-11-20 அன்று முடிவு,ta,2,SCH-INS-01,2026-11-10,2026-11-10,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-010.md
+CIR-2026-011,amendment,Amendment: Last Date Extended for Kanya Vidya Chhatravritti,en,2,SCH-SCH-01,2026-11-14,2026-11-15,,CIR-2026-003,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-011.md
+CIR-2026-012,circular,ಸೂಚನೆ: ಕನ್ಯಾ ವಿದ್ಯಾ ವಿದ್ಯಾರ್ಥಿವೇತನ ಕೊನೆಯ ದಿನಾಂಕ ವಿಸ್ತರಣೆ,kn,2,SCH-SCH-01,2026-11-15,2026-11-15,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-012.md
+CIR-2026-013,amendment,Amendment: Revised Income Limit for Medhavi Chhatra Protsahan Yojana,en,2,SCH-SCH-02,2026-10-30,2027-01-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-013.md
+CIR-2026-014,circular,Circular: Opening Date for Shahari Kiraya Sahayata Yojana,en,2,SCH-HSG-02,2026-11-05,2027-01-15,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-014.md
+CIR-2026-015,circular,சுற்றறிக்கை: மேதாவி திட்டக் கடைசி தேதி 2026-11-21,ta,2,SCH-SCH-02,2026-11-12,2026-11-12,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-015.md
+CIR-2026-016,amendment,Amendment: Revised Income Limit for Grameen Awas Sahayata Yojana,en,2,SCH-HSG-01,2026-11-10,2026-11-15,,,LLM: claude (KB generation prompt v2),Y,kb/docs/CIR-2026-016.md
+FAQ-GEN-01,faq,Frequently Asked Questions – Schemes and Applications,en,4,,2026-06-01,2026-06-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/FAQ-GEN-01.md
+FAQ-GEN-02,faq,अक्सर पूछे जाने वाले सवाल – योजनाएँ और आवेदन,hi,4,,2026-06-01,2026-06-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/FAQ-GEN-02.md
+FAQ-GEN-03,faq,ಪದೇ ಪದೇ ಕೇಳುವ ಪ್ರಶ್ನೆಗಳು – ಯೋಜನೆಗಳು ಮತ್ತು ಅರ್ಜಿ,kn,4,,2026-06-01,2026-06-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/FAQ-GEN-03.md
+FAQ-GEN-04,faq,அடிக்கடி கேட்கப்படும் கேள்விகள் – திட்டங்கள் மற்றும் விண்ணப்பம்,ta,4,,2026-06-01,2026-06-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/FAQ-GEN-04.md
+FAQ-FRM-01,faq,Kisan Samriddhi Yojana FAQ (Hinglish),mixed,4,SCH-FRM-01,2026-08-12,2026-08-12,,,LLM: claude (KB generation prompt v2),Y,kb/docs/FAQ-FRM-01.md
+PRC-APPLY-01,guideline,How to Apply at a Service Centre – Process Note,en,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/PRC-APPLY-01.md
+PRC-APPLY-02,guideline,सेवा केंद्र पर आवेदन कैसे करें – प्रक्रिया नोट,hi,1,,2026-04-01,2026-04-01,,,LLM: claude (KB generation prompt v2),Y,kb/docs/PRC-APPLY-02.md
+COM-2026-001,community,Forwarded WhatsApp message (unverified),mixed,5,,2026-10-02,2026-10-02,,,LLM: claude (KB generation prompt v2),Y,kb/docs/COM-2026-001.md
+GRV-2026-0102,grievance,Pension rejected due to wrong age record,hi,4,SCH-PEN-01,2026-06-24,2026-06-24,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0102.json
+GRV-2026-0109,grievance,UDID card for Divyang Sambal Yojana,kn,4,SCH-DIS-01,2026-05-01,2026-05-01,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0109.json
+GRV-2026-0112,grievance,Age proof without a birth certificate,ta,4,SCH-PEN-01,2026-05-20,2026-05-20,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0112.json
+GRV-2026-0115,grievance,Pension income limit query,hi,4,SCH-PEN-01,2026-05-10,2026-05-10,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0115.json
+GRV-2026-0121,grievance,Kisan Samriddhi instalment delay,en,4,SCH-FRM-01,2026-09-29,2026-09-29,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0121.json
+GRV-2026-0128,grievance,Pension monthly credit date,mixed,4,SCH-PEN-01,2026-07-14,2026-07-14,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0128.json
+GRV-2026-0131,grievance,Kisan Samriddhi land limit query,hi,4,SCH-FRM-01,2026-06-02,2026-06-02,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0131.json
+GRV-2026-0137,grievance,Pension eligibility after income limit change,kn,4,SCH-PEN-01,2026-07-20,2026-07-20,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0137.json
+GRV-2026-0140,grievance,Fraud call asking for OTP,en,4,,2026-09-08,2026-09-08,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0140.json
+GRV-2026-0147,grievance,Krishi Yantra Anudan application query,en,4,SCH-FRM-02,2026-08-15,2026-08-15,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0147.json
+GRV-2026-0153,grievance,Suraksha Bima age limit query,ta,4,SCH-INS-01,2026-09-05,2026-09-05,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0153.json
+GRV-2026-0158,grievance,Money demanded for Grameen Awas file,hi,4,SCH-HSG-01,2026-09-18,2026-09-18,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0158.json
+GRV-2026-0162,grievance,Grameen Awas priority condition query,kn,4,SCH-HSG-01,2026-09-10,2026-09-10,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0162.json
+GRV-2026-0166,grievance,Suraksha Bima for a street vendor,en,4,SCH-INS-01,2026-09-15,2026-09-15,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0166.json
+GRV-2026-0169,grievance,WhatsApp release fee message,mixed,4,,2026-09-20,2026-09-20,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0169.json
+GRV-2026-0172,grievance,Kanya Vidya last date query,ta,4,SCH-SCH-01,2026-10-01,2026-10-01,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0172.json
+GRV-2026-0176,grievance,Kanya Vidya documents query,hi,4,SCH-SCH-01,2026-09-12,2026-09-12,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0176.json
+GRV-2026-0181,grievance,Kanya Vidya application status,kn,4,SCH-SCH-01,2026-10-20,2026-10-20,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0181.json
+GRV-2026-0185,grievance,Suraksha Bima enrolment confirmation,ta,4,SCH-INS-01,2026-10-15,2026-10-15,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0185.json
+GRV-2026-0189,grievance,Divyang Sambal application status,hi,4,SCH-DIS-01,2026-10-07,2026-10-07,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0189.json
+GRV-2026-0192,grievance,Kisan Samriddhi for a tenant farmer,mixed,4,SCH-FRM-01,2026-10-09,2026-10-09,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0192.json
+GRV-2026-0194,grievance,Medhavi marks below 75%,en,4,SCH-SCH-02,2026-10-12,2026-10-12,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0194.json
+GRV-2026-0197,grievance,Land record in a deceased father's name,kn,4,SCH-FRM-01,2026-10-25,2026-10-25,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0197.json
+GRV-2026-0199,grievance,Lost Divyang Sambal bus pass,ta,4,SCH-DIS-01,2026-10-28,2026-10-28,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0199.json
+GRV-2026-0203,grievance,Shahari Kiraya opening date query,en,4,SCH-HSG-02,2026-11-08,2026-11-08,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0203.json
+GRV-2026-0207,grievance,Income certificate older than 12 months,mixed,4,SCH-SCH-02,2026-11-12,2026-11-12,,,LLM: claude (KB generation prompt v2),Y,kb/grievances/GRV-2026-0207.json

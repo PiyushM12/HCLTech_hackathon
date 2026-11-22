@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0192",
+  "citizen_question": "Main bataidar hoon, zameen mere naam pe nahi hai, 2 acre batai pe leta hoon. Kya mujhe Kisan Samriddhi ka paisa mil sakta hai?",
+  "intent": "eligibility",
+  "resolution": "Haan, mil sakta hai. Agar aapke paas tenancy agreement (batai anubandh) hai, toh aap Kisan Samriddhi Yojana mein farmer maane jaate ho. Agreement khatauni ki jagah accept hota hai. 2 acre limit ke andar hai (0.5 se 5 acre). Household income ₹3,00,000 ya kam honi chahiye. Agreement, income certificate aur bank passbook lekar service centre jaiye, apply karna free hai.",
+  "tags": ["kisan samriddhi", "tenant farmer", "tenancy agreement", "hinglish"],
+  "resolved_at": "2026-10-09",
+  "scheme_id": "SCH-FRM-01",
+  "language": "mixed",
+  "needed_human_officer": "N"
+}

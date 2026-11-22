@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0203",
+  "citizen_question": "I rent a room in Sundarpur Civil Lines. Someone said there is a new rent help scheme. Can I apply now?",
+  "intent": "other",
+  "resolution": "Shahari Kiraya Sahayata Yojana has been announced but is not open yet. Applications will open on 2027-01-15 (15 January 2027) and close on 2027-03-31 (31 March 2027). It gives ₹3,000 per month for rent, for up to 12 months, to urban households with an annual income of ₹1,50,000 or less. Keep a registered or notarised rent agreement, a recent income certificate and your bank passbook ready. Nobody can register you before the opening date, and there is no fee.",
+  "tags": ["shahari kiraya", "rent", "upcoming scheme", "opening date"],
+  "resolved_at": "2026-11-08",
+  "scheme_id": "SCH-HSG-02",
+  "language": "en",
+  "needed_human_officer": "N"
+}

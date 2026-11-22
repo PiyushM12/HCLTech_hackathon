@@ -1,0 +1,11 @@
+{
+  "grievance_id": "GRV-2026-0128",
+  "citizen_question": "Meri maa ki pension approve ho gayi hai, par har mahine kis date ko aayegi? Kabhi 5 ko aati hai kabhi 9 ko, bahut confusion hai.",
+  "intent": "status",
+  "resolution": "Vriddhjan Pension ka ₹1,500 har mahine ki 10 tarikh tak bank khate mein credit ho jaata hai (CIR-2026-001, 2026-05-01 se). 10 tarikh se pehle kisi bhi din aa sakta hai. Agar 10 tarikh ke baad bhi nahi aaya, toh acknowledgement number lekar service centre pe payment status check karwa lijiye. Yeh free hai.",
+  "tags": ["pension", "payment date", "status", "hinglish"],
+  "resolved_at": "2026-07-14",
+  "scheme_id": "SCH-PEN-01",
+  "language": "mixed",
+  "needed_human_officer": "N"
+}
